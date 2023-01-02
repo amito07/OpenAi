@@ -1,15 +1,21 @@
-import { Inter } from "@next/font/google";
-import { useTheme, Button } from "@nextui-org/react";
-import Head from "next/head";
+import { Grid } from "@nextui-org/react";
+import CardComponent from "../components/CardComponent";
 import Nav from "../components/navbar";
-
-const inter = Inter({ subsets: ["latin"] });
+import { gg } from "../db/information";
 
 export default function Home() {
-  const { theme } = useTheme();
   return (
     <>
       <Nav />
+      <Grid.Container gap={2} justify="center">
+        {gg.map((el,index) => {
+          return (
+            <Grid key={index} xs={3}>
+              <CardComponent text={el} />
+            </Grid>
+          );
+        })}
+      </Grid.Container>
     </>
   );
 }

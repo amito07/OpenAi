@@ -1,9 +1,18 @@
 import React from "react";
-import { Navbar, Button, Link, Text, Card, Radio } from "@nextui-org/react";
+import {
+  Navbar,
+  Button,
+  Link,
+  Text,
+  Card,
+  Radio,
+  useTheme,
+} from "@nextui-org/react";
 import { Layout } from "./Layout.js";
 import { AcmeLogo } from "./AcmeLogo.js";
 
 export default function Nav() {
+  const { theme } = useTheme();
   return (
     <Layout>
       <Navbar isBordered variant="floating">
@@ -13,13 +22,13 @@ export default function Nav() {
             ACME
           </Text>
         </Navbar.Brand>
-        <Navbar.Content hideIn="xs">
-          <Navbar.Link href="#">Features</Navbar.Link>
-          <Navbar.Link href="#">
-            Customers
-          </Navbar.Link>
-          <Navbar.Link href="#">Pricing</Navbar.Link>
-          <Navbar.Link href="#">Company</Navbar.Link>
+        <Navbar.Content
+          hideIn="xs"
+          variant="highlight-solid-rounded"
+          activeColor={theme.colors.primary.value}
+        >
+          <Navbar.Link isActive href="#">Home</Navbar.Link>
+          <Navbar.Link href="#">Learn More</Navbar.Link>
         </Navbar.Content>
       </Navbar>
     </Layout>
